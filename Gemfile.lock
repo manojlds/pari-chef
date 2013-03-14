@@ -34,6 +34,7 @@ GEM
       highline
       thor (~> 0.15)
     log4r (1.1.10)
+    micromachine (1.0.4)
     mime-types (1.21)
     mixlib-authentication (1.3.0)
       mixlib-log
@@ -71,6 +72,10 @@ GEM
       log4r (~> 1.1.9)
       net-scp (~> 1.0.4)
       net-ssh (~> 2.2.2)
+    vagrant-vbguest (0.6.4)
+      i18n (~> 0.6.0)
+      log4r (~> 1.1.9)
+      micromachine (~> 1.0.4)
     yajl-ruby (1.1.0)
 
 PLATFORMS
@@ -82,3 +87,4 @@ DEPENDENCIES
   librarian
   multi_json
   vagrant (~> 1.0.5)
+  vagrant-vbguest

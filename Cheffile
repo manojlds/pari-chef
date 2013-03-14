@@ -13,3 +13,6 @@ site 'http://community.opscode.com/api/v1'
 # cookbook 'postgresql',
 #   :git => 'https://github.com/findsyou/cookbooks',
 #   :ref => 'postgresql-improvements'
+
+cookbook 'runit'
+cookbook 'nginx', :git => 'git://github.com/opscode-cookbooks/nginx.git'
