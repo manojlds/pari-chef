@@ -4,9 +4,20 @@ SITE
     apt (1.9.0)
     build-essential (1.3.4)
     ohai (1.1.8)
+    python (1.2.2)
+      build-essential (>= 0.0.0)
+      yum (>= 0.0.0)
     runit (1.1.0)
       build-essential (>= 0.0.0)
     yum (2.1.0)
+
+GIT
+  remote: git://github.com/opscode-cookbooks/gunicorn.git
+  ref: master
+  sha: 89be74c6b47bdb980ee1d98f9aae6b747f1d11e8
+  specs:
+    gunicorn (1.1.1)
+      python (>= 0.0.0)
 
 GIT
   remote: git://github.com/opscode-cookbooks/nginx.git
@@ -20,6 +31,7 @@ GIT
       yum (>= 0.0.0)
 
 DEPENDENCIES
+  gunicorn (>= 0)
   nginx (>= 0)
   runit (>= 0)
 

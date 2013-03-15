@@ -28,6 +28,8 @@ Vagrant::Config.run do |config|
 
   config.vm.forward_port 80, 4000
 
+  config.vm.share_folder "pari", "/pari", "../pari"
+
   VAGRANT_JSON = MultiJson.load(Pathname(__FILE__).dirname.join('nodes', 'vagrant.json').read)
 
   config.vm.provision :chef_solo do |chef|
