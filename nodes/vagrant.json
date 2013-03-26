@@ -10,9 +10,12 @@
     }
   },
   "run_list": [
+    "recipe[git]",
     "recipe[yum::yum]",
     "recipe[nginx::source]",
     "recipe[python::default]",
-    "recipe[gunicorn::default]"
+    "recipe[gunicorn::default]",
+    "recipe[supervisor]",
+    "recipe[django_app]"
   ]
 }

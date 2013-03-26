@@ -14,6 +14,8 @@ site 'http://community.opscode.com/api/v1'
 #   :git => 'https://github.com/findsyou/cookbooks',
 #   :ref => 'postgresql-improvements'
 
+cookbook 'git'
 cookbook 'runit'
 cookbook 'nginx', :git => 'git://github.com/opscode-cookbooks/nginx.git'
 cookbook 'gunicorn', :git => 'git://github.com/opscode-cookbooks/gunicorn.git'
+cookbook 'supervisor', :git => 'git://github.com/opscode-cookbooks/supervisor.git'
