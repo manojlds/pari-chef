@@ -7,6 +7,12 @@
 # All rights reserved - Do Not Redistribute
 #
 
+python_virtualenv "/.venv/pari" do
+  owner "root"
+  group "root"
+  action :create
+end
+
 gunicorn_config "/etc/gunicorn/pari.py" do
   action :create
   pid "gunicorn.pid"
