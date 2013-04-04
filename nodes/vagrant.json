@@ -4,7 +4,7 @@
   },
   "nginx": {
     "version": "1.2.6",
-    "default_site_enabled": true,
+    "default_site_enabled": false,
     "source": {
       "modules": ["http_gzip_static_module", "http_ssl_module"]
     }
