@@ -11,6 +11,9 @@ SITE
       runit (~> 1.0)
       windows (>= 0.0.0)
       yum (>= 0.0.0)
+    nodejs (1.1.2)
+      apt (>= 0.0.0)
+      build-essential (>= 0.0.0)
     ohai (1.1.8)
     python (1.2.2)
       build-essential (>= 0.0.0)
@@ -20,6 +23,14 @@ SITE
     windows (1.8.4)
       chef_handler (>= 0.0.0)
     yum (2.1.0)
+
+GIT
+  remote: git://github.com/balbeko/chef-npm.git
+  ref: master
+  sha: 6865658b2cb81fdf5e5c6f9f2650833965da8426
+  specs:
+    npm (0.1.0)
+      nodejs (>= 0.0.0)
 
 GIT
   remote: git://github.com/opscode-cookbooks/gunicorn.git
@@ -52,6 +63,7 @@ DEPENDENCIES
   git (>= 0)
   gunicorn (>= 0)
   nginx (>= 0)
+  npm (>= 0)
   runit (>= 0)
   supervisor (>= 0)
 

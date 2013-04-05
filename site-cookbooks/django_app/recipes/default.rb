@@ -11,7 +11,23 @@ python_virtualenv "/.venv/pari" do
   owner "root"
   group "root"
   action :create
+  notifies :run, "bash[install_app]"
 end
+
+bash "install_app" do
+  cwd "/pari"
+  code <<-EOH 
+    source /.venv/pari/bin/activate
+    export DJANGO_SETTINGS_MODULE=pari.settings.dev
+    pip install -r requirements/dev.txt
+    python manage.py syncdb
+    python manage.py migrate 
+    python manage.py collectstatic --noinput
+    EOH
+  action :run
+end
+
+npm_package "less"
 
 gunicorn_config "/etc/gunicorn/pari.py" do
   action :create
@@ -29,8 +45,8 @@ supervisor_service "gunicorn_pari" do
   autostart true
   autorestart true
   redirect_stderr true
-  environment :DJANGO_SETTINGS_MODULE => "pari.settings.dev"
-  command "gunicorn pari.wsgi:application -c pari.py -p gunicorn.pid"
+  environment :DJANGO_SETTINGS_MODULE => "pari.settings.dev", :PATH => "/.venv/pari/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/vagrant/bin:"
+  command "/.venv/pari/bin/gunicorn pari.wsgi:application -c pari.py -p gunicorn.pid"
   directory "/pari"
   user "root"
   process_name "gunicorn_pari"
